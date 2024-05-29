@@ -30,4 +30,8 @@ public class MessageService {
         return messageRepository.findByToUserIdOrSenderId(userId, userId)
                 .orElse(List.of());
     }
+
+    public void deleteMessage(Long id) {
+        messageRepository.deleteById(id);
+    }
 }

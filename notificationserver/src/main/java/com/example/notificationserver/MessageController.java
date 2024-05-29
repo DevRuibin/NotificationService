@@ -28,5 +28,11 @@ public class MessageController {
     public ResponseEntity<List<MessageModel>> getMessages(@PathVariable Long userId) {
         return ResponseEntity.ok(messageService.getMessagesByUserID(userId));
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteMessage(@PathVariable Long id) {
+        messageService.deleteMessage(id);
+        return ResponseEntity.ok().build();
+    }
 }
 

@@ -1,0 +1,30 @@
+server:
+  port: 8800
+spring:
+  application:
+    name: notificationserver
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/locks
+    username: ruibin
+    password: ruibin123
+  jpa:
+    hibernate:
+      ddl-auto: create
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: user
+    password: password
+    virtual-host: /
+    publisher-returns: true
+    template:
+      mandatory: true
+    listener:
+      simple:
+        concurrency: 1
+        max-concurrency: 10
+        acknowledge-mode: auto
